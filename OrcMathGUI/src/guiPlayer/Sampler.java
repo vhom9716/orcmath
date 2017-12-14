@@ -14,6 +14,7 @@ import guiTeacher.components.*;
 import guiTeacher.interfaces.KeyedComponent;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FullFunctionScreen;
+import victorAdded.FireFlower;
 
 public class Sampler extends GUIApplication {
 
@@ -75,7 +76,6 @@ public class Sampler extends GUIApplication {
 			
 			viewObjects.add(scroll);
 			
-			
 			TextBox box = new TextBox(20, 160, 200, 100, "Try typing here.");
 			viewObjects.add(box);
 			
@@ -119,6 +119,8 @@ public class Sampler extends GUIApplication {
 				}
 			}); 
 			viewObjects.add(cb);
+			
+			viewObjects.add(new FireFlower());
 			
 		}
 		
