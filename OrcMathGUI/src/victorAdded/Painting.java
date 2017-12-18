@@ -13,10 +13,10 @@ public class Painting extends Component {
 	String artisticMovement;
 	String imageAddress;
 	String title;
-	double height;
-	double width;
+	String height;
+	String width;
 	
-	public Painting(String artist, String dateComplete, String artMove, String imgAdd, String title, double h, double w) {
+	public Painting(String artist, String dateComplete, String artMove, String imgAdd, String title, String h, String w) {
 		super(100, 200, 64, 64);
 		this.artist = artist;
 		dateOfCompletion = dateComplete;
