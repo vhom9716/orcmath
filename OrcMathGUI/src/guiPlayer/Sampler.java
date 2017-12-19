@@ -20,6 +20,7 @@ import guiTeacher.interfaces.KeyedComponent;
 import guiTeacher.interfaces.Visible;
 import guiTeacher.userInterfaces.FileLoader;
 import guiTeacher.userInterfaces.FullFunctionScreen;
+import victorAdded.Painting;
 
 public class Sampler extends GUIApplication implements FileRequester{
 
@@ -82,7 +83,6 @@ public class Sampler extends GUIApplication implements FileRequester{
 			
 			viewObjects.add(scroll);
 			
-			
 			TextBox box = new TextBox(20, 160, 200, 100, "Try typing here.");
 			viewObjects.add(box);
 			
@@ -126,8 +126,6 @@ public class Sampler extends GUIApplication implements FileRequester{
 				}
 			}); 
 			viewObjects.add(cb);
-			
-			
 				
 				FileOpenButton fileButton = new FileOpenButton(490, 70, 120, 30, null,Sampler.this);
 				viewObjects.add(fileButton);
