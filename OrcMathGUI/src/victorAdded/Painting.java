@@ -9,22 +9,18 @@ import guiTeacher.components.Component;
 public class Painting extends Component {
 
 	String artist;
-	String dateOfCompletion;
+	int dateOfCompletion;
 	String artisticMovement;
 	String imageAddress;
 	String title;
-	String height;
-	String width;
 	
-	public Painting(String artist, String dateComplete, String artMove, String imgAdd, String title, String h, String w) {
+	public Painting(String artist, String artMove, int dateComplete, String imgAdd, String title) {
 		super(100, 200, 64, 64);
 		this.artist = artist;
 		dateOfCompletion = dateComplete;
 		artisticMovement = artMove;
 		imageAddress = imgAdd;
 		this.title = title;
-		height = h;
-		width = w;
 		
 		/**
 		 * for animating below
@@ -36,7 +32,7 @@ public class Painting extends Component {
 	}
 
 	public String toString() {
-		return title + "," + artist + "," + artisticMovement + "," + dateOfCompletion + "," + height + "," + width;
+		return title + "," + artist + "," + artisticMovement + "," + dateOfCompletion;
 	}
 	
 	@Override
