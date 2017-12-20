@@ -98,6 +98,10 @@ public class CatalogScreen extends FullFunctionScreen implements FileRequester{
 	}
 
 	protected void addClicked() {
+		//check for empties
+		if(painterField.getText().equals("")) {
+			
+		}
 		Painting p = new Painting(painterField.getText(), moveField.getText(), Integer.parseInt(dateField.getText()), addressField.getText(), titleField.getText());
 		paintingCatalog.addPainting(p);
 		text.setText(text.getText() + p +"\n");
