@@ -48,7 +48,7 @@ public class ChristmasCard extends FullFunctionScreen implements FileRequester{
 		setCustomFont();
 		background = new Graphic(0, 0, "resources/snow.jpg");
 		viewObjects.add(background);
-		button = new Button(30, 700, 150, 30, "Open card", new Action() {
+		button = new Button(30, 700, 150, 50, "Open card", new Action() {
 			
 			@Override
 			public void act() {
@@ -65,7 +65,7 @@ public class ChristmasCard extends FullFunctionScreen implements FileRequester{
 	private void setCustomFont(){
 		InputStream stream = ClassLoader.getSystemClassLoader().getResourceAsStream("Christmas.ttf");
 		try {
-			Font font = Font.createFont(Font.TRUETYPE_FONT, stream).deriveFont(30f);
+			Font font = Font.createFont(Font.TRUETYPE_FONT, stream).deriveFont(40f);
 			StyledComponent.setBaseFont(font);
 		} catch (FontFormatException e) {
 			// TODO Auto-generated catch block
