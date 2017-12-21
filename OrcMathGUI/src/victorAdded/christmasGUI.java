@@ -6,7 +6,7 @@ public class christmasGUI extends GUIApplication{
 
 	public static christmasGUI card;
 	public static ChristmasCard frontScreen;
-	public static ChristmasCard insideScreen;
+	public static ChristmasCardBack insideScreen;
 	
 	
 	public christmasGUI(int width, int height) {
@@ -23,7 +23,7 @@ public class christmasGUI extends GUIApplication{
 	
 	public void initScreen() {
 		frontScreen = new ChristmasCard(getWidth(), getHeight());
-		insideScreen = new ChristmasCard(getWidth(), getHeight());
+		insideScreen = new ChristmasCardBack(getWidth(), getHeight());
 		setScreen(frontScreen);
 	}
 
