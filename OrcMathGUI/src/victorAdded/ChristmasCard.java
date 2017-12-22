@@ -11,7 +11,6 @@ import javax.swing.JFrame;
 
 import guiTeacher.components.Action;
 import guiTeacher.components.Button;
-import guiTeacher.components.Component;
 import guiTeacher.components.Graphic;
 import guiTeacher.components.StyledComponent;
 import guiTeacher.components.TextArea;

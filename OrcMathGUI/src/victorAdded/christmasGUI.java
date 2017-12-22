@@ -16,7 +16,7 @@ public class christmasGUI extends GUIApplication{
 	}
 
 	public static void main(String[] args) {
-		christmasGUI card = new christmasGUI(600, 900);
+		card = new christmasGUI(600, 900);
 		Thread go = new Thread(card);
 		go.start();
 	}
