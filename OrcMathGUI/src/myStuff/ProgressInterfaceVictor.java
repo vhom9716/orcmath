@@ -4,6 +4,12 @@ import guiTeacher.interfaces.Visible;
 
 public interface ProgressInterfaceVictor extends Visible{
 
-	void updateProgress(int roundNum);
+	void getProgress();
+
+	void gameOver();
+
+	void setRound(int roundNum);
+
+	void setSeqNum(int size);
 
 }
