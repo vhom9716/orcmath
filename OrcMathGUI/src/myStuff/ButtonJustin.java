@@ -15,7 +15,6 @@ public class ButtonJustin extends Button implements ButtonInterfaceVictor {
 
 	private Color buttonColor;
 	private Color originalColor;
-	private Color lighterColor;
 	
 	public ButtonJustin(int x, int y, int w, int h, String text, Color color, Action action) {
 		super(x, y, w, h, "", color, action);
@@ -35,15 +34,14 @@ public class ButtonJustin extends Button implements ButtonInterfaceVictor {
 	@Override
 	public void setColor(Color color) {
 		if(color != null) {
-			originalColor = buttonColor = color; 
-			lighterColor = buttonColor.brighter();
+			buttonColor = originalColor = color;
 		}
 		update();
 	}
 	
 	@Override
 	public void light() {
-		buttonColor = lighterColor;
+		buttonColor = Color.BLACK;
 		update();
 	}
 
