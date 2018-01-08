@@ -40,6 +40,7 @@ public class ProgressJustin extends StyledComponent implements ProgressInterface
 
 	@Override
 	public void update(Graphics2D g) {
+		super.clear();
 		Font myFont = new Font("Helvetica", Font.PLAIN, 20);
 		g.setFont(myFont);
 		g.setColor(Color.BLACK);

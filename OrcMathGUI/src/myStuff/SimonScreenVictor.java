@@ -57,7 +57,6 @@ public class SimonScreenVictor extends ClickableScreen implements Runnable{
 
 	private void playSequence() {
 		// TODO Auto-generated method stub
-		int sleep = 0;
 		ButtonInterfaceVictor b = null;
 		for(int i = 0; i < moveList.size(); i++) {
 			if(b != null) {
@@ -65,13 +64,9 @@ public class SimonScreenVictor extends ClickableScreen implements Runnable{
 			}
 			b = moveList.get(i).getButton();
 			b.light();
-			
-			int sleepTime = 1000 * ((int) (Math.PI / (3 * Math.pow(Math.E, roundNum))));
-			if(sleepTime <= 0) {
-				sleepTime = 1;
-			}
+		
 			try {
-				Thread.sleep(sleepTime);
+				Thread.sleep(3000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
