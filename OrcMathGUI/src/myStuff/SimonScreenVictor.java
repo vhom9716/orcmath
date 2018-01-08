@@ -89,7 +89,7 @@ public class SimonScreenVictor extends ClickableScreen implements Runnable{
 
 	private ButtonInterfaceVictor getAButton() {
 		// TODO Auto-generated method stub
-		return new ButtonJustin(0,0, 40, 40, "", null, null);
+		return new ButtonJustin(0,0, 40, 40, "", Color.BLACK, null);
 	}
 
 	@Override
