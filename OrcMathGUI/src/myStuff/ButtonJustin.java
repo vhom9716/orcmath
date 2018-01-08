@@ -6,6 +6,7 @@ import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.Shape;
 import java.awt.geom.Ellipse2D;
+import java.awt.image.BufferedImage;
 
 import guiTeacher.components.Action;
 import guiTeacher.components.Button;
@@ -60,6 +61,10 @@ public class ButtonJustin extends Button implements ButtonInterfaceVictor {
 		else {
 			setColor(originalColor);
 		}
+		BufferedImage hoverImage = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_ARGB);
+		Graphics2D hoverG = hoverImage.createGraphics();
+		applyStyles(hoverG);
+		drawButton(hoverG, true);
 		super.update();
 	}
 
