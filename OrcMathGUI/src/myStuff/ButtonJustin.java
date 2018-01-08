@@ -19,7 +19,7 @@ public class ButtonJustin extends Button implements ButtonInterfaceVictor {
 	private boolean enabled;
 	
 	public ButtonJustin(int x, int y, int w, int h, String text, Color color, Action action) {
-		super(x, y, w, h, "", color, null);
+		super(x, y, w, h, "", color, action);
 		enabled = false;
 		setColor(color);
 		update();
@@ -39,16 +39,19 @@ public class ButtonJustin extends Button implements ButtonInterfaceVictor {
 			originalColor = buttonColor = color; 
 			lighterColor = buttonColor.brighter();
 		}
+		update();
 	}
 	
 	@Override
 	public void light() {
 		enabled = true;
+		update();
 	}
 
 	@Override
 	public void dim() {
 		enabled = false;
+		update();
 	}
 	
 	public void update() {
