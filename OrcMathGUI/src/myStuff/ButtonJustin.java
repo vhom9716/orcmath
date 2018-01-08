@@ -21,10 +21,7 @@ public class ButtonJustin extends Button implements ButtonInterfaceVictor {
 	public ButtonJustin(int x, int y, int w, int h, String text, Color color, Action action) {
 		super(x, y, w, h, "", color, null);
 		enabled = false;
-		if(color != null) {
-			originalColor = buttonColor = color; 
-			lighterColor = buttonColor.brighter();
-		}
+		setColor(color);
 		update();
 	}
 	
@@ -38,8 +35,8 @@ public class ButtonJustin extends Button implements ButtonInterfaceVictor {
 
 	@Override
 	public void setColor(Color color) {
-		if(buttonColor != null) {
-			buttonColor = color;
+		if(color != null) {
+			originalColor = buttonColor = color; 
 			lighterColor = buttonColor.brighter();
 		}
 	}
@@ -56,10 +53,10 @@ public class ButtonJustin extends Button implements ButtonInterfaceVictor {
 	
 	public void update() {
 		if(enabled) {
-			setColor(lighterColor);
+			buttonColor = lighterColor;
 		}
 		else {
-			setColor(originalColor);
+			buttonColor = originalColor;
 		}
 		BufferedImage hoverImage = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_ARGB);
 		Graphics2D hoverG = hoverImage.createGraphics();
