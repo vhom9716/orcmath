@@ -42,8 +42,6 @@ public class SimonScreenVictor extends ClickableScreen implements Runnable{
 		progress.setRound(roundNum);
 		progress.setSeqNum(moveList.size());
 		changeText("Simon's Turn");
-		Thread run = new Thread(this);
-		run.start();
 		try {
 			Thread.sleep(1000);
 		} catch (InterruptedException e) {
@@ -67,16 +65,14 @@ public class SimonScreenVictor extends ClickableScreen implements Runnable{
 			}
 			b = moveList.get(i).getButton();
 			b.light();
-			sleep = 1000 - (30 * roundNum);
-			if(sleep <= 0) {
-				sleep = 1;
+			
+			int sleepTime = 1000 * ((int) (Math.PI / (3 * Math.pow(Math.E, roundNum))));
+			if(sleepTime <= 0) {
+				sleepTime = 1;
 			}
-			Thread run = new Thread(this);
-			run.start();
 			try {
-				Thread.sleep(sleep);
+				Thread.sleep(sleepTime);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
@@ -101,7 +97,7 @@ public class SimonScreenVictor extends ClickableScreen implements Runnable{
 		}
 		progress = getProgress();
 		viewObjects.add(progress);
-		roundInfo = new TextLabel(100, 100, 200, 200, "This is Simon's game");
+		roundInfo = new TextLabel(100, 50, 200, 200, "This is Simon's game");
 		viewObjects.add(roundInfo);
 		moveList = new ArrayList<MoveInterfaceVictor>();
 		moveList.add(getRandMove());
@@ -111,7 +107,7 @@ public class SimonScreenVictor extends ClickableScreen implements Runnable{
 	
 	private ProgressInterfaceVictor getProgress() {
 		// TODO Auto-generated method stub
-		return new ProgressJustin(0,0, 100, 100);
+		return new ProgressJustin(200, 600, 500, 200);
 	}
 
 	private void intButtons() {
@@ -120,8 +116,13 @@ public class SimonScreenVictor extends ClickableScreen implements Runnable{
 		for(int i = 0; i < buttons.length; i++) {
 			ButtonInterfaceVictor b = getAButton();
 			b.setColor(colors[i]);
-			b.setX(200 + (int)Math.sin((Math.toRadians(i*60)))*20);
-			b.setY(200 + (int)Math.cos((Math.toRadians(i*60)))*20);
+			double cx = b.getWidth() / 2;
+			double cy = b.getHeight() / 2;
+			double angle = (i * (2 * Math.PI)) / 6;
+		    double x = cx + 110.0 * Math.cos(angle);                
+		    double y = cy + 110.0 * Math.sin(angle);  
+			b.setX(200+x);
+			b.setY(200+y);
 			b.setAction(new Action(){
 				public void act(){
 					if(isPlayerTurn) {
@@ -134,19 +135,21 @@ public class SimonScreenVictor extends ClickableScreen implements Runnable{
 									// TODO Auto-generated catch block
 									e.printStackTrace();
 								}	
-									b.dim();
+								b.dim();
 							}
 						});
 						blink.start();
-					}
-					if(b == moveList.get(moveIdx).getButton()) {
-						moveIdx++;
+						
+						if(b == moveList.get(moveIdx).getButton()) {
+							moveIdx++;
+						}else {
+							progress.gameOver();
+						}
+						
 						if(moveIdx == moveList.size()){ 
 						    Thread nextRound = new Thread(SimonScreenVictor.this); 
 						    nextRound.start(); 
 						}
-					}else {
-						progress.gameOver();
 					}
 					
 				}
@@ -166,6 +169,7 @@ public class SimonScreenVictor extends ClickableScreen implements Runnable{
 
 	private MoveInterfaceVictor getMove(int randNum) {
 		// TODO Auto-generated method stub
+		lastButton = randNum;
 		return new MoveJustin(buttons[randNum]);
 	}
 
