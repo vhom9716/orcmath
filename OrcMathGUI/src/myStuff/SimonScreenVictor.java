@@ -68,7 +68,7 @@ public class SimonScreenVictor extends ClickableScreen implements Runnable{
 			b = moveList.get(i).getButton();
 			b.light();
 			sleep = 1000 - (30 * roundNum);
-			if(sleep == 0) {
+			if(sleep <= 0) {
 				sleep = 1;
 			}
 			Thread run = new Thread(this);
@@ -89,7 +89,7 @@ public class SimonScreenVictor extends ClickableScreen implements Runnable{
 
 	private ButtonInterfaceVictor getAButton() {
 		// TODO Auto-generated method stub
-		return null;
+		return new ButtonJustin(0,0, 40, 40, "", null, null);
 	}
 
 	@Override
@@ -111,7 +111,7 @@ public class SimonScreenVictor extends ClickableScreen implements Runnable{
 	
 	private ProgressInterfaceVictor getProgress() {
 		// TODO Auto-generated method stub
-		return null;
+		return new ProgressJustin(0,0, 100, 100);
 	}
 
 	private void intButtons() {
@@ -152,20 +152,21 @@ public class SimonScreenVictor extends ClickableScreen implements Runnable{
 				}
 
 			});
+			buttons[i] = b;
 		}
 	}
 
 	public MoveInterfaceVictor getRandMove() {
-		int randNum = (int)(Math.random() * buttons.length);
+		int randNum = (int) (Math.random() * buttons.length);
 		while(randNum == lastButton) {
-			randNum = (int)(Math.random() * buttons.length);
+			randNum = (int) (Math.random() * buttons.length);
 		}
 		return getMove(randNum);
 	}
 
 	private MoveInterfaceVictor getMove(int randNum) {
 		// TODO Auto-generated method stub
-		return null;
+		return new MoveJustin(buttons[randNum]);
 	}
 
 }
