@@ -64,9 +64,9 @@ public class SimonScreenVictor extends ClickableScreen implements Runnable{
 			}
 			b = moveList.get(i).getButton();
 			b.light();
-		
+			int sleepTime = 1000/roundNum;
 			try {
-				Thread.sleep(3000);
+				Thread.sleep(sleepTime);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
