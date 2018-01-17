@@ -53,7 +53,7 @@ public class PractiveScreen extends FullFunctionScreen{
 						buttonThing.setText("Click Me!");
 						countdown.setText("");
 						buttonThing.setAction(new Action(){
-							public void act() {
+							public void act() { 
 								count++;
 								counter.setText("Score: "+count);
 								update();
